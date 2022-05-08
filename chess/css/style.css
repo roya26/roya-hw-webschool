@@ -1,0 +1,21 @@
+*{
+    font-size-adjust: 12px;
+    font-weight:normal;
+    padding: 0;
+    margin: 0;
+}
+.white{
+    background-color: white;
+}
+.black{
+    background-color: black;
+}
+section{
+    width:800px;
+    height: 800px;
+    margin: 20px auto;
+    border: brown 5px groove;
+    display: grid;
+    grid-template-columns: repeat(8,1fr);
+    grid-template-rows: repeat(8,1fr);
+}

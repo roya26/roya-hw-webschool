@@ -1,0 +1,39 @@
+* {
+    font-size: 15px;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-weight: normal;
+    font-family: Arial, Helvetica, sans-serif;
+}
+h1 {
+color: blue;
+}
+.round{
+    border-radius: 50%;
+}
+
+#home-btn {
+    background-color: red;
+    width: 50px;
+    height: 50px;
+    position: fixed;
+    z-index: 999;
+    bottom:10px;
+    right: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+      
+}
+
+#second {
+    background-color: yellow;
+    height: 500vh;
+}
+
+#third {
+    background-color: green;
+    width: 50%;
+    height: 50%;
+}

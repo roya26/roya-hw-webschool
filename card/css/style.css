@@ -1,0 +1,63 @@
+* {
+    font-size: 15px;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-weight: normal;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+main {
+background-color: aquamarine;
+height: 100vh;
+display: flex;
+position: relative;
+}
+
+button {
+border: none;
+padding: 10px;
+margin: 10px;
+width: 200px;
+}
+
+input {
+    border: none;
+    padding: 10px;
+    margin: 20px 0;
+    background-color: rgb(166, 161, 161);
+}
+
+#card{
+    background-color: #fff;
+    width: 100%;
+    border: 1px black solid;
+    border-radius: 30px;
+    text-align: center;
+    box-shadow: 10px 10px 10px 10px gray;
+    height:  100%;
+    position:100px 100px 100px  fixed;
+    left: 0;
+    top: 0;
+
+    justify-content: space-around;
+    align-items: center;
+
+    
+
+}
+
+.ok-btn{
+    background-color: green;
+    border-bottom-left-radius: 20px;
+}
+
+.cancel-btn{
+    background-color: red;
+    border-bottom-right-radius: 20px;
+}
+
+.ok-cancel{
+    margin: 20px auto;
+}

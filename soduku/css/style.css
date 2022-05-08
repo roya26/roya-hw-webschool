@@ -1,0 +1,49 @@
+* {
+    font-size: 20px;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-weight: normal;
+     font-family: Arial, Helvetica, sans-serif; 
+}
+
+section {
+    width: 40vw;
+    height: 40vw;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3 , 1fr);
+    gap: 10px;
+    border: 4px double;
+    background-color: white;
+    border: 4px rgb(33, 33, 128) double;
+}
+
+article {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3 , 1fr);
+    gap: 5px; 
+    background-color: rgb(158, 155, 155);
+}
+
+div {
+    border:2px rgb(66, 65, 65) solid;
+    transition: transform 2s ease;
+}
+
+button:hover ~ section {
+    width:20vw;
+    height: 20vw;
+}
+
+article:hover {
+    background-color: rgb(101, 195, 202);
+     transform: rotate(120deg); 
+}
+
+div:hover {
+ background-color:rgb(53, 184, 184);
+ border:5px rgb(48, 154, 235) solid;
+ transform: scale3d(200% 200% 200%);
+}
