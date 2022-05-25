@@ -1,0 +1,17 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+
+main{
+    display: grid;
+    width: 75vw;
+    grid-template-columns: repeat(4,1fr);
+    background-color: rgb(145, 145, 145);
+    gap: 20px;
+}
+
+article{
+    background-color: #fff;
+}
