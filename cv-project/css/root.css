@@ -1,0 +1,48 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Modak&family=Permanent+Marker&family=Playball&family=Rubik+Puddles&display=swap');
+
+* {
+    font-size: 20px;
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+    font-weight: normal;
+    font-family: Permanent Marker; 
+}
+
+.col-1{
+width: 10%;
+}
+
+.col-2{
+width: 20%; 
+}
+
+.col-3{
+width: 30%;  
+}
+
+.col-4{
+width: 40%;
+}
+
+.col-5{
+width: 50%;
+}
+ 
+.row-1{
+    height: 10%;
+}
+
+.row-2{
+    height: 20%;
+}
+
+.row-3{
+    height: 30%;
+    display: flex;
+}
+
+.row-4{
+    height: 40%;
+}
