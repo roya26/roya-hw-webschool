@@ -1,7 +1,6 @@
 
 
-function getInfo(data){
-     
+function getInfo(data){    
 var url = "http://api-fulfill.dataexchange.us-east-1.amazonaws.com/v1"
 fetch(url,type="GET",apiKey = "9f12dc82")
 .then ((resolve)=>{
@@ -18,3 +17,7 @@ function matchSearch(){
 }if(search == data){
     return 
 }
+
+function searchMovie(){
+    document.getElementById("#btn").addEventListener("click",function matchSearch)
+} 
