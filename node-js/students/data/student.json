@@ -1,0 +1,44 @@
+[
+    {
+        "id": 111,
+        "name": "Ruth",
+        "age": 10,
+        "scoreAvg": 100
+    },
+    {
+        "id": 222,
+        "name": "Yosef",
+        "age": 9,
+        "scoreAvg": 99
+    },
+    {
+        "id": 333,
+        "name": "Ayala",
+        "age": 10,
+        "scoreAvg": 98
+    },
+    {
+        "id": 444,
+        "name": "Israel",
+        "age": 9,
+        "scoreAvg": 97
+    },
+    {
+        "id": 555,
+        "name": "David",
+        "age": 10,
+        "scoreAvg": 96
+    },
+    {
+        "id": 666,
+        "name": "Yonathan",
+        "age": 9,
+        "scoreAvg": 95
+    },
+    {
+        "id": 777,
+        "name": "Bat-sheva",
+        "age": 10,
+        "scoreAvg": 94
+    }
+]
