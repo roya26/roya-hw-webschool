@@ -1,9 +1,13 @@
 const fs = require("fs");
 const path = require("path")
-const read =require("./read.js")
+const read =require("../html/read.js")
 const studentPath = path.join(__dirname + "/../data/student.json");
 
-function deletestudent(){
-    const students= read()
+
+function deleteStudent(){
+    const studentsJson= read()
+      studentsJson.shift()
+    const students=JSON.stringify(studentsJson)
+    console.log(students)
     
 }

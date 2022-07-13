@@ -1,27 +1,27 @@
-const greetInHebrew =require (__dirname+"/he.js")
-const greetInEnglish =require(__dirname+"/en.js")
-const greetInFrance =require (__dirname+"/fr.js")
-const greetInArrabic =require (__dirname+"/ar.js")
-const args = process.argv.slice(2)
-const name = (args[0])
-const lang = (args[1])
+// const greetInHebrew =require (__dirname+"/he.js")
+// const greetInEnglish =require(__dirname+"/en.js")
+// const greetInFrance =require (__dirname+"/fr.js")
+// const greetInArrabic =require (__dirname+"/ar.js")
+// const args = process.argv.slice(2)
+// const name = (args[0])
+// const lang = (args[1])
 
 
-switch (lang) {
-    case "he":
-greetInHebrew(name)
-        break;
-        case  "en":
-greetInEnglish(name)
-            break;
-            case  "fr":
-greetInFrance(name)
-                break;
-                case  "ar":
-greetInArrabic(name)
-                    break;
+// switch (lang) {
+//     case "he":
+// greetInHebrew(name)
+//         break;
+//         case  "en":
+// greetInEnglish(name)
+//             break;
+//             case  "fr":
+// greetInFrance(name)
+//                 break;
+//                 case  "ar":
+// greetInArrabic(name)
+//                     break;
                     
-}
+// }
 
 
 // const data = Buffer.from("hello world")
@@ -34,3 +34,11 @@ greetInArrabic(name)
 // console.log(he)
 // const fs = require("fs")
 // FileSystem.writeFileSync("./newFile","hi to everybody!")
+
+
+// const he =fs.readFileSync("./he.js","basa64") מילון אחר 
+const he =fs.readFileSync("./he.js",{encoding:'utf-8'})
+console.log("he",he)
+
+fs.writeFileSync("./newFile","shalom newfile!")
+const newFile =fs.readFileSync("./newFile",{encoding:'utf-8'})
