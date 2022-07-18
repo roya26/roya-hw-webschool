@@ -8,7 +8,7 @@ form.addEventListener("submit", (e) => {
     for (const [key, value] of IdToDelete) {
         delJson [key] =value;               
 }
-    fetch("http://localhost:2121/api/students",
+    fetch("http://localhost:2121/crud",
         {
             method: "DELETE",
             body: JSON.stringify(delJson)

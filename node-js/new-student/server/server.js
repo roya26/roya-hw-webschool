@@ -5,11 +5,13 @@ const path = require("path");
 const clientPath = path.join(__dirname + "/../client")
 const readFn = require("../server/crud/read")
 const createFn = require("../server/crud/create");
-const deleteFn = require("./crud/delete");
-
+const deleteFn = require("../server/crud/delete");
+const updateFn = require("../server/crud/update")
 
 const server = http.createServer(async (req, res) => {
+    console.log("jhgfjhgfjhgf");
     const method = req.method;
+    console.log("method",method);
     const url = req.url
     switch (url) {
         // case "/":
@@ -17,10 +19,10 @@ const server = http.createServer(async (req, res) => {
         // res.end(homePage)
         // return;
         case "/":// it is the same,but when we have a big folder it is better to use this way
-            fs.createReadStream(clientPath + "/class/class.html").pipe(res);
+            fs.createReadStream(clientPath + "/readStudent/readStudent.html").pipe(res);
             return;
-        case "/class.js":
-            fs.createReadStream(clientPath + "/class/class.js").pipe(res);
+        case "/readStudent.js":
+            fs.createReadStream(clientPath + "/readStudent/readStudent.js").pipe(res);
             return;
         case "/addStudent":
             fs.createReadStream(clientPath + "/deleteStudent/deleteStudent.html").pipe(res);
@@ -34,17 +36,19 @@ const server = http.createServer(async (req, res) => {
         case "/deleteStudent.js":
             fs.createReadStream(clientPath + "/deleteStudent/deleteStudent.js").pipe(res);
             return;
-
-        case "api/getStudents":
-            const students = readFn()
-            res.en(students);
+        case "/updateStudent":
+            fs.createReadStream(clientPath + "/updateStudent/deleteStudent.html").pipe(res);
             return;
-        case "api/students":
+        case "/updateStudent.js":
+            fs.createReadStream(clientPath + "/updateStudent/deleteStudent.js").pipe(res);
+            return;
+
+        case "/crud":
             switch (method) {
                 case "POST":
                     const buffers = [];
                     for await (const chunk of req) {
-                        buffers.push(chunk);
+                    buffers.push(chunk);
                     }
                     const newStudent = JSON.parse(Buffer.concat(buffers).toString());
                     console.log(data);
@@ -54,23 +58,37 @@ const server = http.createServer(async (req, res) => {
                 case "DELETE":
                     const delBuffers = [];
                     for await (const chunk of req) {
-                        delBuffers.push(chunk);
+                    delBuffers.push(chunk);
                     }
                     const delObj = JSON.parse(Buffer.concat(delBuffers).toString());
                     const id = delObj.id;
-                    if(!id){
+                    if (!id) {
                         console.log("cannot delete without id");
-                        res,end("cannot delete without id")
-                        return;
+                        res.end("cannot delete without id")
+                        break;
                     }
-                    const delmsg =deleteFn(id)
+                    const delmsg = deleteFn(id)
                     console.log(delObj)
                     console.log(delmsg)
-                    res.end(); 
-                   
+                    res.end();
+                    break;
+                case "PUT":
+                    const upBuffers = [];
+                    for await (const chunck of req) {
+                        upBuffers.push(chunck);
+                    }
+                    const upObj = JSON.parse(Buffer.concat(upBuffers).toString());
+                    const upStudents = updateFn(upObj);
+                    console.log(upStudents)
+                    res.end();
+                    break;
+                case "GET":
+                    const students =readFn()
+                    res.end(students)
+                    break;
             }
- 
-           
+
+
 
 
         // default:

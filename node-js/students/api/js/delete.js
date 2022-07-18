@@ -11,3 +11,5 @@ function deleteStudent(){
     console.log(students)
     
 }
+
+module.exports= deleteStudent;

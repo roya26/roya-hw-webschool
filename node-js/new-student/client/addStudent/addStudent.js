@@ -8,7 +8,7 @@ form.addEventListener("submit",(e)=>{
      for (const [key,value] of data) {
 jsonData[key]=value;
      }
-    fetch("http://localhost:2121/api/student",
+    fetch("http://localhost:2121/crud",
     {method:"POST",
     body:JSON.stringify(jsonData)
 }).then((res)=>json())
