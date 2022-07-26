@@ -9,9 +9,8 @@ const deleteFn = require("../server/crud/delete");
 const updateFn = require("../server/crud/update")
 
 const server = http.createServer(async (req, res) => {
-    console.log("jhgfjhgfjhgf");
     const method = req.method;
-    console.log("method",method);
+    console.log("method", method);
     const url = req.url
     switch (url) {
         // case "/":
@@ -25,22 +24,22 @@ const server = http.createServer(async (req, res) => {
             fs.createReadStream(clientPath + "/readStudent/readStudent.js").pipe(res);
             return;
         case "/addStudent":
-            fs.createReadStream(clientPath + "/deleteStudent/deleteStudent.html").pipe(res);
+            fs.createReadStream(clientPath + "/addStudent/addStudent.html").pipe(res);
             return;
         case "/addStudent.js":
             fs.createReadStream(clientPath + "/addStudent/addStudent.js").pipe(res);
             return;
         case "/deleteStudent":
-            fs.createReadStream(clientPath + "/deletStudent/deleteStudent.html").pipe(res);
+            fs.createReadStream(clientPath + "/deleteStudent/deleteStudent.html").pipe(res);
             return;
         case "/deleteStudent.js":
             fs.createReadStream(clientPath + "/deleteStudent/deleteStudent.js").pipe(res);
             return;
         case "/updateStudent":
-            fs.createReadStream(clientPath + "/updateStudent/deleteStudent.html").pipe(res);
+            fs.createReadStream(clientPath + "/updateStudent/updateStudent.html").pipe(res);
             return;
         case "/updateStudent.js":
-            fs.createReadStream(clientPath + "/updateStudent/deleteStudent.js").pipe(res);
+            fs.createReadStream(clientPath + "/updateStudent/updateStudent.js").pipe(res);
             return;
 
         case "/crud":
@@ -48,29 +47,28 @@ const server = http.createServer(async (req, res) => {
                 case "POST":
                     const buffers = [];
                     for await (const chunk of req) {
-                    buffers.push(chunk);
+                        buffers.push(chunk);
                     }
                     const newStudent = JSON.parse(Buffer.concat(buffers).toString());
-                    console.log(data);
+                    console.log(newStudent + " before create fn");
                     const msg = createFn(newStudent)
-                    res.end(JSON.stringify({ msg }));
+                    res.end(msg);
+                    console.log(msg);
                     break;
                 case "DELETE":
                     const delBuffers = [];
                     for await (const chunk of req) {
-                    delBuffers.push(chunk);
+                        delBuffers.push(chunk);
                     }
                     const delObj = JSON.parse(Buffer.concat(delBuffers).toString());
                     const id = delObj.id;
-                    if (!id) {
-                        console.log("cannot delete without id");
-                        res.end("cannot delete without id")
-                        break;
-                    }
+                    // if (!id) {
+                    //     console.log("cannot delete without id");
+                    // }
                     const delmsg = deleteFn(id)
                     console.log(delObj)
                     console.log(delmsg)
-                    res.end();
+                    res.end(delmsg);
                     break;
                 case "PUT":
                     const upBuffers = [];
@@ -80,21 +78,20 @@ const server = http.createServer(async (req, res) => {
                     const upObj = JSON.parse(Buffer.concat(upBuffers).toString());
                     const upStudents = updateFn(upObj);
                     console.log(upStudents)
-                    res.end();
+                    res.end(upStudents);
                     break;
                 case "GET":
-                    const students =readFn()
+                    const students = readFn()
+                    console.log(students);
                     res.end(students)
                     break;
             }
+return;
 
-
-
-
-        // default:
-        //     const notFoundPage = fs.readFileSync(clientPath + "/404/404.html")
-        //     res.end(notFoundPage)
-        //     return;
+        default:
+            const notFoundPage = fs.readFileSync(clientPath + "/404/404.html")
+            res.end(notFoundPage)
+            return;
     }
 })
 

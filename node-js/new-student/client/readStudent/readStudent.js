@@ -9,6 +9,7 @@ btn.addEventListener("click", () => {
 
 });
 
+
 function createTable(arr) {
     const table = document.createElement("table");
     const thead = document.createElement("thead");

@@ -1,4 +1,4 @@
-const form = document.getElementsByName("f")
+ const form = document.getElementsByName("f")
 
 form.addEventListener("submit",(event)=>{
     console.log("submit");
