@@ -5,9 +5,10 @@ f.addEventListener("submit", (e) => {
     const data = new FormData(f);
     const dataJson = {}
     for (const [key, value] of data) {
-        dataJson[key] = value;
+        dataJson[key] = value;  
+        console.log("the data from the form :", dataJson);
     }
-    console.log("the data from the form :", dataJson);
+  
     fetch("http://localhost:4444/api/login", {
         method: "POST",
         body: JSON.stringify(dataJson),
