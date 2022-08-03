@@ -6,6 +6,8 @@ const read = require("./api/read");
 const create = require("./api/create")
 const update = require("./api/update")
 const deletePro = require("./api/delete")
+let msg = "";
+
 
 
 switch (command) {
@@ -20,7 +22,8 @@ switch (command) {
         update(product);
         break;
     case "delete":
-        deletePro (product);
+        msg = deletePro(product);
+        console.log(msg);
         break;
 
     default:
