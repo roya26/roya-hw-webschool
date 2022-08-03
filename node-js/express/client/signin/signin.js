@@ -8,7 +8,7 @@ f.addEventListener("submit", (e) => {
     const data = new FormData(f);
     for (const [key, value] of data) {
         jsonData[key] = value;
-        console.log("jsonData", jsonData);
+        console.log("jsonData is: ", jsonData);
     }
     fetch("http://localhost:4444/api/signin",
         {
