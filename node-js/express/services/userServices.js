@@ -8,6 +8,7 @@ function read() {
         (fs.readFileSync(dataPath + "/users.json", "utf-8"))
     return currentUsersData;
 }
+
 async function saveUserData(userObj) {
     const currentUsersData = read();
     //bcrypt password
@@ -19,20 +20,30 @@ async function saveUserData(userObj) {
     return;
 };
 
-
-
-
 async function compareUserData(userData) {
     const currentUsersData = read();
     for (let i = 0; i < currentUsersData.length; i++) {
         const storedData = currentUsersData[i];
         if (storedData.email === userData.email) {
-           const compareResult =await bcrypt.compare(userData.pssword,storedData.password)
-            return compareResult;
+            const compareResult = await bcrypt.compare(userData.pssword, storedData.password)
+            const resObj = {}
+            resObj.compareResult = compareResult
+            if (compareResult) {
+                resObj.role = storedData.role
+            }
+            return resObj;
         }
     }
     return false;
 }
 
+async function getRole(userData) {
+    const currentUsersData = read();
+    currentUsersData.forEach(
+        userData.email == currentUsersData.email) 
+        {return currentUsersData.role
+    }
+}
 
-module.exports = { saveUserData, compareUserData, }    
+
+module.exports = { saveUserData, compareUserData, getRole}    

@@ -2,14 +2,17 @@ const express = require("express");
 const app = express();
 const path = require("path");
 const clientPath = path.join(__dirname + "/../client");
-const compareUserDataFn = require("../services/userServices");
-const userServices = require("../services/userServices");
+const tokenServices = require("../services/tokenServices");
 const cookieParser = require("cookie-parser");
+const apiRouter = require("../routes/api.route");
+const pagesRouter = require("../routes/pages.route")
 
 //MIDDLEWARE
 
 app.use(express.json());
 app.use(cookieParser());//req.cookieכדי שיהיה לי 
+app.use("/api",apiRouter)
+app.use("/",pagesRouter)
 
 app.use("/login", express.static(clientPath + "/login"))
 // app.use((req,res,next)=>{
@@ -36,44 +39,42 @@ app.get("/signin", (req, res) => {
 
 app.get("/private", (req, res) => {
     const cookies = req.cookies;
-    console.log("cookies are: ", cookies);
+
+    //jwt verfication
     if (cookies["loginRes"]) {
-        if (cookies["loginRes"].loginRes === true) {
+        //"loginRes"in koocies
+        console.log("the cookies :", cookies["loginRes"]);
+        const token = cookies["loginRes"].token
+        console.log("the token is:", token);
+        const verifyResult = tokenServices.verifyToken(token)
+        console.log("the result from verify is:", verifyResult);
+        if (verifyResult) {
             res.sendFile(clientPath + "/private/private.html")
+        } else {
+            console.log("you have a bad token");
+            //res.redirect(302,"/signin")
+            res.sendFile(clientPath + "/signin/signin.html")
             return;
         }
     }
-    res.sendFile(clientPath + "/signin/signin.html")
-    return;
-})
+//     //old code
+//     console.log("cookies are: ", cookies);
+//     if (cookies["loginRes"]) {
+//         if (cookies["loginRes"].loginRes === true) {
+//             res.sendFile(clientPath + "/private/private.html")
+//             return;
+//         }
+//     }
+//     //res.redirect(302,"/signin")
+//     res.sendFile(clientPath + "/signin/signin.html")
+//     return;
+ })
 
 app.get("/login", (req, res) => {
     res.sendFile(clientPath + "/login/login.html")
     return;
 });
 
-app.post("/api/signin", (req, res) => {
-    const data = req.body;
-    console.log("the body of the request is: ", data);
-    userServices.saveUserData(data);
-    res.send(JSON.stringify({ msg: "signin successfully" }));
-    return;
-});
-
-app.post("/api/login", async (req, res) => {
-    const data = req.body;
-    console.log("the body of the request is: ", data);
-    const result = await userServices.compareUserData(data);
-    //COOKIES
-    if (result) {
-        res.cookie = ("loginRes", { passedlogin: result });
-        res.send(JSON.stringify({ msg: `login: ${result}` }))
-        return;
-    }
-    console.log("the result of comparison is: ", result);
-    res.send(JSON.stringify({ msg: `login: ${result}` }))
-    return;
-});
 
 
 

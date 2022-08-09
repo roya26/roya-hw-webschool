@@ -1,0 +1,30 @@
+[
+    {
+        "name":"roya",
+        "userName":"royaa",
+        "password":"111",
+        "accountBalance":100000,
+        "confimationQuestion":"aaa"
+    },
+    {
+        "name":"avner",
+        "userName":"avnerb",
+        "password":"222",
+        "accountBalance":100000,
+        "confimationQuestion":"bbb"
+    },
+    {
+        "name":"keren",
+        "userName":"kerenb",
+        "password":"333",
+        "accountBalance":100000,
+        "confimationQuestion":"ccc"
+    },
+    {
+        "name":"michael",
+        "userName":"michaele",
+        "password":"444",
+        "accountBalance":100000,
+        "confimationQuestion":"ddd"
+    }
+]

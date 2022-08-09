@@ -1,0 +1,28 @@
+const jwt = require("jsonwebtoken");
+const SECRET = "my important secret"
+
+
+function createToken(role) {
+    const token = jwt.sign({ message: "ein od milvado", role }, SECRET, { expiresIn: "2000" });
+    console.log("the token is: ", token);
+    return token
+}
+
+
+function verifyToken(token, checkRole) {
+    try {
+        const decodedToken = jwt.verify(token, SECRET)
+        if (checkRole) {
+            if (decodedToken.role === "admin") {
+                return true
+            }else{
+                return false}
+        }
+
+        return true
+    } catch (error) {
+        console.log("My error is: ", error);
+        return false
+    }
+}
+module.exports = { createToken, verifyToken }
