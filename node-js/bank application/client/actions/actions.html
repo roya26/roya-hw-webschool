@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="actions.css">
+    <title>Document</title>
+</head>
+<body>
+    <nav>
+        <a href="/">Home</a>
+        <a href="/register">Register</a>
+        <a href="/login">LogIn</a>
+        <a href="/accountBalance">AccountBalance</a>
+    </nav>
+    <main>
+        <h1>ACTIONS</h1>
+        <form name="form" id="depoForm">
+           <h3>DEPOSIT</h3>
+           <label for="userName">Username</label>
+           <input name="userName" type="text" id="userName">
+           <label for="password">PASSWORD</label>
+           <input name="password" type="text" id="password">
+            <label for="Deposit">Deposit:Please enter the amount</label>
+            <input name="Deposit" type="number" id="Deposit">
+            <button type="submit" id="btn">DEPOSIT NOW</button>
+            <p id="msg"></p>
+        </form>
+        <form name="form" id="withForm"> 
+           <h3>WITHDRAWING</h3>
+           <label for="userName">Username</label>
+           <input name="userName" type="text" id="userName">
+           <label for="password">PASSWORD</label>
+           <input name="password" type="text" id="password">
+            <label for="Withdrawing">Withdrawing :Please enter the amount</label>
+            <input name="Withdrawing" type="number" id="Withdrawing">
+            <button type="submit" id="sBtn">WITHDRAWING NOW</button>
+            <p id="msg"></p>
+        </form>
+        <form name="form" id="delForm"> 
+            <h3>DELETE ACCOUNT</h3>
+            <label for="userName">Username</label>
+            <input name="userName" type="text" id="userName">
+            <label for="password">PASSWORD</label>
+            <input name="password" type="text" id="password">
+             <label for="Deposit">Delete: :Please enter your answer to confirmation question:What was your mother's last name before marriage?</label>
+             <input name="delete" type="text" id="delete">
+             <button type="submit" id="tBtn">DELETE NOW</button>
+             <p id="msg"></p>
+         </form>
+    </main>
+</body>
+<script src="actions.js"></script>
+</html>

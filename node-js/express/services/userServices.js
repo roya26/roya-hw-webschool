@@ -22,7 +22,7 @@ async function saveUserData(userObj) {
 
 async function compareUserData(userData) {
     const currentUsersData = read();
-    for (let i = 0; i < currentUsersData.length; i++) {
+    for (let i = 0; i < currentUsersData.length; i++){
         const storedData = currentUsersData[i];
         if (storedData.email === userData.email) {
             const compareResult = await bcrypt.compare(userData.pssword, storedData.password)
@@ -36,6 +36,8 @@ async function compareUserData(userData) {
     }
     return false;
 }
+    
+
 
 async function getRole(userData) {
     const currentUsersData = read();

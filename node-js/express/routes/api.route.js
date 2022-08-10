@@ -2,8 +2,8 @@ const express = require("express")
 const router = express.Router()
 const userServices = require("../services/userServices.js");
 const tokenServices = require("../services/tokenServices");
-
 app.use(express.json()); 
+
 router.post("/signin", (req, res) => {
     const data = req.body;
     console.log("the body of the request is: ", data);
