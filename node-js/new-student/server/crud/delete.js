@@ -48,7 +48,7 @@ function deleteStudent(id) {
    }
    console.log("storedStudents after ",storedStudents);
    fs.writeFileSync(dataPath + "/students.json", JSON.stringify(storedStudents))
-   return `id :${id} was deleted`
+   return `id :${id} has deleted`
 }
 
 

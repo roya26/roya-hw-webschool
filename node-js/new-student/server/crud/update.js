@@ -12,9 +12,7 @@ function update(studentToUpdate) {
       for (const key in studentToUpdate) {
         if (studentToUpdate[key] && key !== "id") {
           student[key] = studentToUpdate[key];
-
         }
-
       }
       fs.writeFileSync(dataPath + "/students.json", JSON.stringify(currentStudents));
       return `The student with id: ${student.id} has updated successfully`

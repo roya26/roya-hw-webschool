@@ -4,7 +4,6 @@ f.addEventListener("submit", (e) => {
     e.preventDefault;
     console.log("hi from form");
     jsonData = {}
-    let msg =""
     const data = new FormData(f)
     for (const [key, value] of data) {
         jsonData[key] = value;

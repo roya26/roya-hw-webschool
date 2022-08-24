@@ -25,8 +25,8 @@ app.get("/register", (req, res) => {
    return
 })
 
-app.get("/accountBalance", (req, res) => {
-   res.sendFile(clientPath + "/accountBalance/accountBalance.html")
+app.get("/account_balance", (req, res) => {
+   res.sendFile(clientPath + "/account_balance/account_balance.html")
    return
 })
 
@@ -60,14 +60,14 @@ app.use("/api/actions", express.static(clientPath + "/actions"))
 
 app.use("/login", express.static(clientPath + "/login"))
 
-app.use("/accountBalance", express.static(clientPath + "/accountBalance"))
+app.use("/account_balance", express.static(clientPath + "/accountBalance"))
 
 app.use("/register", express.static(clientPath + "/register"))
 
 app.use("/", express.static(clientPath + "/home"))
 
 app.put("/", (req, res) => {
-   res.set("Access-Cotrol-Allow-Orogin", "*")
+   res.set("Access-Cotrol-Allow-Origin", "*")
    res.send({ msg: 'hi from server' })
    return
 })
@@ -78,19 +78,20 @@ app.put("/api/actions/withdrawing", (req, res) => {
    const ammount = data.ammount
    const result = services.compareUserName(data)
    if (cookies = req.cookies && result) {
-      withdrawing(data, ammount)
+      withdrawing(data)
    }
+   
 
 })
 
 app.put("/api/actions/deposit", (req, res) => {
    const data = req.body
    console.log("the data from Deposit:", data);
-
+   services.deposit(data)
 })
 
 app.delete("/api/actions/delete", (req, res) => {
    const data = req.body
    console.log("the data from delete:", data);
-
+services.withdrawing(data)
 })
